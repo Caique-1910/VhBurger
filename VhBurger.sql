@@ -1,0 +1,59 @@
+-- CRIAR UM BANCO
+
+
+USE VH_Burguer
+GO
+
+CREATE TABLE Usuario ( 
+	UsuarioID INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(60) NOT NULL,
+	Email VARCHAR(150) UNIQUE NOT NULL,
+	Senha VARBINARY(32) NOT NULL,
+	StatusUsuario BIT DEFAULT 1
+);
+GO
+
+CREATE TABLE Produto (
+	ProdutoID INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(100) UNIQUE NOT NULL,
+	Preco DECIMAL(10,2) NOT NULL,
+	Descricao NVARCHAR(MAX) NOT NULL,
+	Imagem VARBINARY(MAX) NOT NULL,
+	StatusProduto BIT DEFAULT 1,
+	UsuarioID INT FOREIGN KEY REFERENCES Usuario(UsuarioID)
+)
+GO
+
+CREATE TABLE Categoria(
+	CategoriaID INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(50) NOT NULL
+)
+GO
+
+
+
+CREATE TABLE ProdutoCategoria(
+	ProdutoID INT NOT NULL,
+	CategoriaID INT NOT NULL,
+	CONSTRAINT PK_ProdutoCategoria PRIMARY KEY ( ProdutoID, CategoriaID),
+	CONSTRAINT FK_ProdutoCategoria_Produto FOREIGN KEY ( ProdutoID) REFERENCES Produto(ProdutoID) ON DELETE CASCADE,
+	CONSTRAINT FK_ProdutoCategoria_Categoria FOREIGN KEY ( CategoriaID) REFERENCES Categoria(CategoriaID) ON DELETE CASCADE
+)
+GO
+
+CREATE TABLE Promocao(
+	PromocaoID INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(100) NOT NULL,
+	DataExpiracao DATETIME NOT NULL,
+	StatusPromocao BIT DEFAULT 1 NOT NULL
+)
+GO
+
+CREATE TABLE ProdutoPromocao(
+	PromocaoID INT NOT NULL,
+	ProdutoID INT NOT NULL,
+	PrecoAtual DECIMAL (10,2)
+	CONSTRAINT PK_ProdutoPromocao PRIMARY KEY ( ProdutoID, PromocaoID),
+	CONSTRAINT FK_ProdutoCategoria_Produto FOREIGN KEY ( ProdutoID) REFERENCES Produto(ProdutoID) ON DELETE CASCADE,
+	CONSTRAINT FK_ProdutoCategoria_Categoria FOREIGN KEY (PromocaoID) REFERENCES Promocao(PromocaoID) ON DELETE CASCADE
+)
