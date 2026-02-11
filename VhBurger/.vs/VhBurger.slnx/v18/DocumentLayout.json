@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\VhBurger\\Contexts\\VH_BurguerContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VhBurger\\Contexts\\VH_BurguerContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FDFEF5F-814A-3A0E-E4E0-D870F74B224D}|VhBurger\\VhBurger.csproj|c:\\users\\52918563862\\desktop\\vhburger\\vhburger\\vhburger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FDFEF5F-814A-3A0E-E4E0-D870F74B224D}|VhBurger\\VhBurger.csproj|solutionrelative:vhburger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FDFEF5F-814A-3A0E-E4E0-D870F74B224D}|VhBurger\\VhBurger.csproj|c:\\users\\52918563862\\desktop\\vhburger\\vhburger\\vhburger\\applications\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FDFEF5F-814A-3A0E-E4E0-D870F74B224D}|VhBurger\\VhBurger.csproj|solutionrelative:vhburger\\applications\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VH_BurguerContext.cs",
-              "DocumentMoniker": "C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\VhBurger\\Contexts\\VH_BurguerContext.cs",
-              "RelativeDocumentMoniker": "VhBurger\\Contexts\\VH_BurguerContext.cs",
-              "ToolTip": "C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\VhBurger\\Contexts\\VH_BurguerContext.cs",
-              "RelativeToolTip": "VhBurger\\Contexts\\VH_BurguerContext.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\VhBurger\\Applications\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "VhBurger\\Applications\\Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\VhBurger\\Applications\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "VhBurger\\Applications\\Services\\UsuarioService.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAUwFUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T13:57:05.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\VhBurger\\Program.cs",
-              "RelativeDocumentMoniker": "VhBurger\\Program.cs",
-              "ToolTip": "C:\\Users\\52918563862\\Desktop\\VhBurger\\VhBurger\\VhBurger\\Program.cs",
-              "RelativeToolTip": "VhBurger\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T13:25:36.342Z",
+              "WhenOpened": "2026-02-11T13:29:56.59Z",
               "EditorCaption": ""
             }
           ]
