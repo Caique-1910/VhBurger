@@ -9,14 +9,14 @@ namespace VhBurger.Applications.Services
 {
     //service concetra o "como fazer"
     public class UsuarioService
-    {   
+    {
         // _repository é o canal para acessar os dados do banco como camada de segurança.
         private readonly IUsuarioRepository _repository;
 
         // injeção de dependencia
         // implementamos o repositorio e o service so depende da interface
-        public UsuarioService(IUsuarioRepository repository) 
-        { 
+        public UsuarioService(IUsuarioRepository repository)
+        {
             _repository = repository;
         }
 
@@ -33,7 +33,7 @@ namespace VhBurger.Applications.Services
             return lerUsuario;
         }
 
-        public List<LerUsuarioDTO> Listar() 
+        public List<LerUsuarioDTO> Listar()
         {
             List<Usuario> usuarios = _repository.Listar();
 
@@ -61,7 +61,7 @@ namespace VhBurger.Applications.Services
             return sha256.ComputeHash(Encoding.UTF8.GetBytes(senha));
         }
 
-        public LerUsuarioDTO ObterPorId(int id) 
+        public LerUsuarioDTO ObterPorId(int id)
         {
             Usuario usuario = _repository.ObterPorId(id);
 
@@ -83,6 +83,68 @@ namespace VhBurger.Applications.Services
             }
 
             return LerDTO(usuario);
+        }
+
+        public LerUsuarioDTO Adicionar(CriarUsuarioDTO usuarioDTO)
+        {
+            ValidarEmail(usuarioDTO.Email);
+            if (_repository.EmailExiste(usuarioDTO.Email))
+            {
+                throw new DomainException("Já exite um usuário com este e-mail");
+            }
+
+            Usuario usuario = new Usuario
+            {
+                Nome = usuarioDTO.Nome,
+                Email = usuarioDTO.Email,
+                Senha = HashSenha(usuarioDTO.Senha),
+                StatusUsuario = true
+            };
+
+            _repository.Adicionar(usuario);
+
+            return LerDTO(usuario);
+        }
+
+        public LerUsuarioDTO Atualizar(int id, CriarUsuarioDTO usuarioDTO)
+        {
+
+            Usuario usuarioBanco = _repository.ObterPorId(id);
+
+            if (usuarioBanco == null)
+            {
+                throw new DomainException("Usuário não encontrado.");
+            }
+
+            ValidarEmail(usuarioDTO.Email);
+
+            Usuario usuarioComMesmoEmail = _repository.ObterPorEmail(usuarioDTO.Email);
+
+            if (usuarioComMesmoEmail != null && usuarioComMesmoEmail.UsuarioID != id)
+            {
+                throw new DomainException("Já existe um usuario com este email");
+            }
+
+            usuarioBanco.Nome = usuarioDTO.Nome;
+            usuarioBanco.Email = usuarioDTO.Email;
+            usuarioBanco.Senha = HashSenha(usuarioDTO.Senha);
+
+            _repository.Atualizar(usuarioBanco);
+
+            return LerDTO(usuarioBanco);
+        }
+
+
+        public void Remover (int id) 
+        { 
+            Usuario usuario = _repository.ObterPorId(id);
+
+            if (usuario == null ) 
+            {
+                throw new DomainException("Usuário não encontrado");
+            }
+
+            _repository.Remover(id);
         }
 
     }
