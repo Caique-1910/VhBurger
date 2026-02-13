@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using VhBurger.Domains;
-using VhBurger.DTOs;
+using VhBurger.DTOs.UsuarioDto;
 using VhBurger.Exceptions;
 using VhBurger.Interfaces;
 

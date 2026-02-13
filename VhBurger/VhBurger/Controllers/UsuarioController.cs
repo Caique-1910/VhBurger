@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VhBurger.Applications.Services;
-using VhBurger.DTOs;
+using VhBurger.DTOs.UsuarioDto;
 using VhBurger.Exceptions;
 
 namespace VhBurger.Controllers
