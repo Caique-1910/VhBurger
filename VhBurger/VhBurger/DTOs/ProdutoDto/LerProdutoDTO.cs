@@ -17,7 +17,7 @@ namespace VhBurger.DTOs.ProdutoDto
         //Categorias
         public List<int> CategoriaIDs { get; set; } = new();
         
-        public List<string> Categoria { get; set; } = new();
+        public List<string> Categorias { get; set; } = new();
 
         //Usuario
 
