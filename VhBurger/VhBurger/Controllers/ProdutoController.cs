@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using VhBurger.Applications.Services;
@@ -62,6 +63,55 @@ namespace VhBurger.Controllers
             catch (DomainException ex) 
             {
                 return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Consumes("multipart/form-data")] //Indica que recebe dados no formato multipart/form-data necessario quando enviamos arquivos
+        [Authorize] //Exige login para adiocionar produtos
+        public ActionResult Adicionar([FromForm] CriarProdutoDTO produtoDto) //Diz que os dados vem do formulario da requisição (multipart/form-data)
+        {
+            try
+            {
+                int usuarioId = ObterUsuarioIdLogado(); //Obtem o id do usuario logado
+                _service.Adicionar(produtoDto, usuarioId); //Chama o service para adicionar o produto, passando os dados do produto e o id do usuario logado
+                return StatusCode(201); //Retorna status 201 Created indicando que o produto foi criado com sucesso
+
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        [Consumes("multipart/form-data")]
+        [Authorize]
+        public ActionResult Atualizar(int id, [FromForm] AtualizarProdutoDTO produtoDto) 
+        {
+            try 
+            {
+                _service.Atualizar(id, produtoDto);
+                return NoContent(); //Retorna status 204 No Content indicando que a atualização foi bem sucedida, mas não há conteúdo para retornar
+            }
+            catch (DomainException ex) 
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public ActionResult Remover (int id) 
+        {
+            try
+            {
+                _service.Remover(id);
+                return NoContent(); //Retorna status 204 No Content indicando que a remoção foi bem sucedida, mas não há conteúdo para retornar
+            }
+            catch (DomainException ex) 
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

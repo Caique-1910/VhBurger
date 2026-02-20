@@ -24,7 +24,7 @@ namespace VhBurger.Applications.Autentificacao
 
             var audience = _config["Jwt:Audience"]!; // Para quem foi criado o token (nome da api/sistema) define qual sistema pode utilizar o token
 
-            var expiraEmMinutos = int.Parse(_config["Jwt:ExpiraEmMinutos"]); //Tempo de expiracao define quantos minutos sera valido e depois disso o usuario tem logar novamente
+            var expiraEmMinutos = int.Parse(_config["Jwt:ExpiraEmMinutos"]!); //Tempo de expiracao define quantos minutos sera valido e depois disso o usuario tem logar novamente
 
             var keyBytes = Encoding.UTF8.GetBytes(chave); //Converte a chave para bytes necessario para criar a assinatura
 
