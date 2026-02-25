@@ -32,6 +32,13 @@ builder.Services.AddScoped<ProdutoService>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<CategoriaService>();
 
+//Promocao
+builder.Services.AddScoped<IPromocaoRepository, PromocaoRepository>();
+builder.Services.AddScoped<PromocaoService>();
+
+//Log de alteração do produto
+builder.Services.AddScoped<ILogAlterecaoProdutoRepository, LogAlteracaoProdutoRepository>();
+builder.Services.AddScoped<LogAlteracaoProdutoService>();
 
 //jwt
 builder.Services.AddScoped<GeradorTokenJwt>();

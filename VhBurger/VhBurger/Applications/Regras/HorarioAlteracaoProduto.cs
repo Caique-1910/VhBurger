@@ -7,7 +7,7 @@ namespace VhBurger.Applications.Regras
         public static void ValidarHorario() 
         {
             var agora = DateTime.Now.TimeOfDay;
-            var abertura = new TimeSpan(10, 0, 0);
+            var abertura = new TimeSpan(16, 0, 0);
             var fechamento = new TimeSpan(23, 0, 0);
 
             var estaAberto = agora >= abertura && agora <= fechamento;

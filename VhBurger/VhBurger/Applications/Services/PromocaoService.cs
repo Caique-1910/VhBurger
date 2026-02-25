@@ -63,7 +63,6 @@ namespace VhBurger.Applications.Services
 
         public void Adicionar(CriarPromocaoDTO promocaoDto) 
         {
-            ValidarNome(promocaoDto.Nome);
             ValidarDataExpiracaoPromocao.ValidarDataExpiracao(promocaoDto.DataExpiracao);
 
             if (_repository.NomeExiste(promocaoDto.Nome))
@@ -81,29 +80,38 @@ namespace VhBurger.Applications.Services
             _repository.Adicionar(promocao);
         }
 
-        public void Atualizar(CriarPromocaoDTO promocaoDto)
+        public void Atualizar(int id, CriarPromocaoDTO promocaoDto)
         {
             ValidarNome(promocaoDto.Nome);
-            ValidarDataExpiracaoPromocao.ValidarDataExpiracao(promocaoDto.DataExpiracao);
+            Promocao promocaoBanco = _repository.ObterPorId(id);
 
-            if (_repository.NomeExiste(promocaoDto.Nome))
+            if (promocaoBanco == null)
             {
-                throw new DomainException("Promocao já existente");
+                throw new DomainException("Promoção não encontrada");
             }
 
-            Promocao promocao = new Promocao
+            if (_repository.NomeExiste(promocaoDto.Nome, promocaoIdAtual: id)) 
             {
-                Nome = promocaoDto.Nome,
-                DataExpiracao = promocaoDto.DataExpiracao,
-                StatusPromocao = promocaoDto.StatusPromocao
-            };
+                throw new DomainException("Já existe outra promoção com esse nome");
+            }
 
-            _repository.Atualizar(promocao);
+            promocaoBanco.Nome = promocaoDto.Nome;
+            promocaoBanco.DataExpiracao = promocaoDto.DataExpiracao;
+            promocaoBanco.StatusPromocao = promocaoDto.StatusPromocao;
+
+            _repository.Atualizar(promocaoBanco);
         }
 
         public void Remover(int id)
         {
+            Promocao promocaoBanco = _repository.ObterPorId(id);
 
+            if (promocaoBanco == null)
+            {
+                throw new DomainException("Promocao não encontrada");
+            }
+
+            _repository.Remover(id);
         }
     }
 }

@@ -125,6 +125,37 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "VhBurger.Controllers.LogAlteracaoProdutoController",
+    "Method": "Listar",
+    "RelativePath": "api/LogAlteracaoProduto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VhBurger.Controllers.LogAlteracaoProdutoController",
+    "Method": "ListarPorProduto",
+    "RelativePath": "api/LogAlteracaoProduto/produto/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produtoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "VhBurger.Controllers.ProdutoController",
     "Method": "Listar",
     "RelativePath": "api/Produto",
@@ -273,6 +304,105 @@
     "Method": "ObterImagem",
     "RelativePath": "api/Produto/{id}/imagens",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VhBurger.Controllers.PromocaoController",
+    "Method": "Listar",
+    "RelativePath": "api/Promocao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[VhBurger.DTOs.PromocaoDTO.LerPromocaoDTO, VhBurger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "VhBurger.Controllers.PromocaoController",
+    "Method": "Adicionar",
+    "RelativePath": "api/Promocao",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "promoDto",
+        "Type": "VhBurger.DTOs.PromocaoDTO.CriarPromocaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VhBurger.Controllers.PromocaoController",
+    "Method": "ObterPorId",
+    "RelativePath": "api/Promocao/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "VhBurger.DTOs.PromocaoDTO.LerPromocaoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "VhBurger.Controllers.PromocaoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Promocao/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "promoDto",
+        "Type": "VhBurger.DTOs.PromocaoDTO.CriarPromocaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VhBurger.Controllers.PromocaoController",
+    "Method": "Remover",
+    "RelativePath": "api/Promocao/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
