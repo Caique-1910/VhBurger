@@ -240,19 +240,12 @@
         ],
         "parameters": [
           {
-            "name": "produtoId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -989,6 +982,10 @@
           },
           "senha": {
             "type": "string",
+            "nullable": true
+          },
+          "statusUsuario": {
+            "type": "boolean",
             "nullable": true
           }
         },

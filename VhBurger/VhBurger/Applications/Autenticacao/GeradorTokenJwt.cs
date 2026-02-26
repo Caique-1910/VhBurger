@@ -43,7 +43,10 @@ namespace VhBurger.Applications.Autentificacao
 
                 new Claim(ClaimTypes.Name, usuario.Nome), // Nome do usuario
 
-                new Claim(ClaimTypes.Email, usuario.Email) // Email do usuario
+                new Claim(ClaimTypes.Email, usuario.Email), // Email do usuario
+
+                new Claim(ClaimTypes.Role, "true") // Role do usuario para definir permissoes de acesso
+
             };
 
             var token = new JwtSecurityToken(                           // Cria o token jwt com todas as informacoes 

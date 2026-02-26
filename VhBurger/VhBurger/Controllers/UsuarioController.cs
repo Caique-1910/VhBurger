@@ -27,27 +27,29 @@ namespace VhBurger.Controllers
         [HttpGet("{id}")]
         public ActionResult<LerUsuarioDTO>ObterPorId(int id)
         {
-           LerUsuarioDTO usuario = _service.ObterPorId(id);
-
-           if(usuario == null) 
-            {
-               return NotFound(); //NotFound-404 não encontrado
+            try
+            { 
+                LerUsuarioDTO usuario = _service.ObterPorId(id);
+                return Ok(usuario);
             }
-
-            return Ok(usuario);
+            catch (DomainException ex) 
+            {
+                return NotFound(ex.Message); //NotFound-404 não encontrado
+            }
         }
 
         [HttpGet("email/{email}")]
         public ActionResult<LerUsuarioDTO> ObterPorEmail(string email) 
         {
-            LerUsuarioDTO usuario = _service.ObterPorEmail(email);
-
-            if(usuario == null) 
+           try
             {
-                return NotFound();
+                LerUsuarioDTO usuario = _service.ObterPorEmail(email);
+                return Ok(usuario);
             }
-
-            return Ok(usuario);
+            catch (DomainException ex) 
+            {
+                return NotFound(ex.Message);
+            }
         }
 
 

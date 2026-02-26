@@ -85,6 +85,14 @@ namespace VhBurger.Applications.Services
             return LerDTO(usuario);
         }
 
+        public static void ValidarNome(string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+            {
+                throw new DomainException("Nome é obrigatório");
+            }
+        }
+
         public LerUsuarioDTO Adicionar(CriarUsuarioDTO usuarioDTO)
         {
             ValidarEmail(usuarioDTO.Email);
@@ -108,7 +116,6 @@ namespace VhBurger.Applications.Services
 
         public LerUsuarioDTO Atualizar(int id, CriarUsuarioDTO usuarioDTO)
         {
-
             Usuario usuarioBanco = _repository.ObterPorId(id);
 
             if (usuarioBanco == null)
@@ -117,6 +124,8 @@ namespace VhBurger.Applications.Services
             }
 
             ValidarEmail(usuarioDTO.Email);
+            ValidarNome(usuarioDTO.Nome);
+
 
             Usuario usuarioComMesmoEmail = _repository.ObterPorEmail(usuarioDTO.Email);
 
@@ -128,6 +137,7 @@ namespace VhBurger.Applications.Services
             usuarioBanco.Nome = usuarioDTO.Nome;
             usuarioBanco.Email = usuarioDTO.Email;
             usuarioBanco.Senha = HashSenha(usuarioDTO.Senha);
+            usuarioBanco.StatusUsuario = usuarioDTO.StatusUsuario ?? usuarioBanco.StatusUsuario;
 
             _repository.Atualizar(usuarioBanco);
 

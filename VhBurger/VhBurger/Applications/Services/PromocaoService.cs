@@ -59,11 +59,14 @@ namespace VhBurger.Applications.Services
             }
         }
 
+
      
 
         public void Adicionar(CriarPromocaoDTO promocaoDto) 
         {
             ValidarDataExpiracaoPromocao.ValidarDataExpiracao(promocaoDto.DataExpiracao);
+
+
 
             if (_repository.NomeExiste(promocaoDto.Nome))
             {

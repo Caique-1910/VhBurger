@@ -8,6 +8,6 @@
 
         public string Email { get; set; } = null!;
 
-        public bool StatusUsuario { get; set; }
+        public bool StatusUsuario { get; set; } 
     }
 }

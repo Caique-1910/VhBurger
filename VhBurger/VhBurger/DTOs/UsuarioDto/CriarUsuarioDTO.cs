@@ -8,5 +8,6 @@
 
         public string Senha { get; set; } = null!;
 
+        public bool? StatusUsuario { get; set; } = null;
     }
 }
