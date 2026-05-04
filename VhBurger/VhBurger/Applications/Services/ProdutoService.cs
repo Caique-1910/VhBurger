@@ -31,7 +31,7 @@ namespace VhBurger.Applications.Services
 
             if (produto == null)
             {
-                throw new Exception("Produto não encontrado.");
+                throw new DomainException("Produto não encontrado.");
             }
 
 

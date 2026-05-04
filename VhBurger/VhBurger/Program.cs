@@ -152,7 +152,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication(); // Diz para a aplicação usar o sistema de autenticação configurado acima (JWT Bearer).
 app.UseAuthorization();
-
 app.UseCors("CorsPolicy");
 
 app.MapControllers();

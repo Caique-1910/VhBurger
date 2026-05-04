@@ -20,13 +20,10 @@ namespace VhBurger.DTOs.ProdutoDto
         public List<string> Categorias { get; set; } = new();
 
         //Usuario
-
         public int? UsuarioID { get; set; }
-
         public string? UsuarioNome { get; set; }
-
         public string? UsuarioEmail { get; set; }
 
-
+        public string ImagemUrl { get; set; }
     }
 }
