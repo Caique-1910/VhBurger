@@ -69,12 +69,12 @@ namespace VhBurger.Controllers
         [HttpPost]
         [Consumes("multipart/form-data")] //Indica que recebe dados no formato multipart/form-data necessario quando enviamos arquivos
         [Authorize] //Exige login para adiocionar produtos
-        public ActionResult Adicionar([FromForm] CriarProdutoDTO produtoDto) //Diz que os dados vem do formulario da requisição (multipart/form-data)
+        public  async Task<ActionResult> Adicionar([FromForm] CriarProdutoDTO produtoDto) //Diz que os dados vem do formulario da requisição (multipart/form-data)
         {
             try
             {
                 int usuarioId = ObterUsuarioIdLogado(); //Obtem o id do usuario logado
-                _service.Adicionar(produtoDto, usuarioId); //Chama o service para adicionar o produto, passando os dados do produto e o id do usuario logado
+                await _service.Adicionar(produtoDto, usuarioId); //Chama o service para adicionar o produto, passando os dados do produto e o id do usuario logado
                 return StatusCode(201); //Retorna status 201 Created indicando que o produto foi criado com sucesso
 
             }

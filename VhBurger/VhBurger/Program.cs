@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using VhBurger.Applications.Autentificacao;
+using VhBurger.Applications.ContentSafety;
 using VhBurger.Applications.Services;
 using VhBurger.Contexts;
 using VhBurger.Interfaces;
@@ -71,6 +72,9 @@ builder.Services.AddScoped<LogAlteracaoProdutoService>();
 //jwt
 builder.Services.AddScoped<GeradorTokenJwt>();
 builder.Services.AddScoped<AutenticacaoService>();
+
+//Content Safety
+builder.Services.AddScoped<IContentSafetyRepository, ContentSafetyService>();
 
 
 // Configura o sistema de autenticação da aplicação.
