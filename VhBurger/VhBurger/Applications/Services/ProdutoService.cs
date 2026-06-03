@@ -99,7 +99,7 @@ namespace VhBurger.Applications.Services
         {
             ValidarCadastro(produtoDTO);
 
-            ValidarConteudoProdutoAsync(produtoDTO.Nome, produtoDTO.Descricao);
+            await ValidarConteudoProdutoAsync(produtoDTO.Nome, produtoDTO.Descricao);
 
             if (_repository.NomeExiste(produtoDTO.Nome))
             {
