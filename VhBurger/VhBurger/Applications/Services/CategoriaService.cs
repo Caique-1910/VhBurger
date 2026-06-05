@@ -59,7 +59,7 @@ namespace VhBurger.Applications.Services
 
             if (_repository.NomeExiste(criarDto.Nome))
             {
-                throw new DomainException("Categoria já existente");
+                throw new DomainException("Categoria já existente.");
             }
 
 

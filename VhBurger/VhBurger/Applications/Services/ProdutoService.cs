@@ -95,11 +95,11 @@ namespace VhBurger.Applications.Services
             return imagem;
         }
 
-        public async Task <LerProdutoDTO> Adicionar(CriarProdutoDTO produtoDTO, int usuarioID)
+        public async Task<LerProdutoDTO> Adicionar(CriarProdutoDTO produtoDTO, int usuarioID)
         {
             ValidarCadastro(produtoDTO);
 
-            await ValidarConteudoProdutoAsync(produtoDTO.Nome, produtoDTO.Descricao);
+            //await ValidarConteudoProdutoAsync(produtoDTO.Nome, produtoDTO.Descricao);
 
             if (_repository.NomeExiste(produtoDTO.Nome))
             {
